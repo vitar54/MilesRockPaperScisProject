@@ -10,14 +10,16 @@
             obj.textContent = "Game started";
             let numOfGames = 5;
             let textResults = "";
+            let lineVar = "";
             //ask user to choose number of games
             numOfGames = prompt("Please enter Number of Games to Play", 7);
             // 1 - Rock
             // 2 - Paper
             // 3 - Scissors
             while (gameNumber < numOfGames) {
-                console.log("Games played: " + gameNumber + " Ties: " + numOfDraws + " Computer wins: " + numOfCompWins  + " User wins: " + numOfUserWins );
-                textResults += "\nGames played: " + gameNumber + ". Ties: " + numOfDraws + ". Computer wins: " + numOfCompWins  + ". User wins: " + numOfUserWins;
+                lineVar = "Games played: " + gameNumber + ". Ties: " + numOfDraws + ". Computer wins: " + numOfCompWins  + ". User wins: " + numOfUserWins;
+                console.log(lineVar);
+                textResults += "\n" + lineVar;
                 let whatUserSelected = 1;
                 // ask user to choose. put results in whatUserSelected
                 let userEnteredText = "rock";
@@ -69,9 +71,10 @@
                 gameNumber++;
             }
             
-            console.log("Games played: " + gameNumber + " Ties: " + numOfDraws + " Computer wins: " + numOfCompWins  + " User wins: " + numOfUserWins );
+            lineVar = "Games played: " + gameNumber + ". Ties: " + numOfDraws + ". Computer wins: " + numOfCompWins  + ". User wins: " + numOfUserWins;
+            console.log(lineVar);
             
-            obj.textContent = textResults + "\nGames played: " + gameNumber + ". Ties: " + numOfDraws + ". Computer wins: " + numOfCompWins  + ". User wins: " + numOfUserWins;
+            obj.textContent = textResults + "\n" + lineVar;
             
         }
 
