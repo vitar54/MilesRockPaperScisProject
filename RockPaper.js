@@ -1,4 +1,9 @@
 
+const options = {
+    rock:1,
+    paper:2,
+    scissors:3
+};
 
         function getGameResults() {
             
@@ -7,11 +12,10 @@
             let numOfUserWins = 0;
             let numOfDraws = 0;  
             let obj = document.getElementById("areaResults");
-            obj.textContent = "Game started";
-            let numOfGames = 5;
             let textResults = "";
             let lineVar = "";
             //ask user to choose number of games
+            let numOfGames = 5; // initialize
             numOfGames = prompt("Please enter Number of Games to Play", 7);
             // 1 - Rock
             // 2 - Paper
@@ -19,8 +23,8 @@
             while (gameNumber < numOfGames) {
                 lineVar = "Games played: " + gameNumber + ". Ties: " + numOfDraws + ". Computer wins: " + numOfCompWins  + ". User wins: " + numOfUserWins;
                 console.log(lineVar);
-                textResults += "\n" + lineVar;
-                let whatUserSelected = 1;
+                textResults += lineVar + "\n";
+                let whatUserSelected = options.rock;
                 // ask user to choose. put results in whatUserSelected
                 let userEnteredText = "rock";
                 userEnteredText = prompt("Please select Rock, Paper or Scissors", "Rock");
@@ -28,24 +32,25 @@
                 if ((userEnteredText != null) && (userEnteredText != "")) {
                     userEnteredText = userEnteredText.toLowerCase();
                     if (userEnteredText == "rock") {
-                        whatUserSelected = 1;
+                        whatUserSelected = options.rock;
                     } else if (userEnteredText == "paper") {
-                        whatUserSelected = 2;
+                        whatUserSelected = options.paper;
                     } else if (userEnteredText == "scissors") {
-                        whatUserSelected = 3;
+                        whatUserSelected = options.scissors;
                     } else {
-                        whatUserSelected = 3;
+                        whatUserSelected = options.scissors;
                         userEnteredText = "scissors";
                     }
                 } else {
-                    whatUserSelected = 1;
+                    whatUserSelected = options.rock;
                 }
                 // generate comp choice - random number from 1 to 3
                 let compChoice = Math.floor(Math.random() * (3)) + 1 ;
+                // convert computer choice into text
                 let compText = "rock";
-                if (compChoice == 2) {
+                if (compChoice == options.paper) {
                     compText = "paper";
-                } else if (compChoice == 3) {
+                } else if (compChoice == options.scissors) {
                     compText = "scissors";
                 } else {
                     compText = "rock";
@@ -53,21 +58,21 @@
                 lineVar = "Computer: " + compText + " User: " + userEnteredText;
                 console.log(lineVar);
             
-                textResults += "\n" + lineVar;
+                textResults += lineVar + "\n";
                 // if they are the same then Tie
                 if (compChoice == whatUserSelected) {
                     numOfDraws++;
-                } else if (compChoice == 1 & whatUserSelected == 2) {
+                } else if (compChoice == options.rock & whatUserSelected == options.paper) {
                     numOfUserWins++;
-                } else if (compChoice == 1 & whatUserSelected == 3) {
+                } else if (compChoice == options.rock & whatUserSelected == options.scissors) {
                     numOfUserWins++;
-                } else if (compChoice == 2 & whatUserSelected == 3) {
+                } else if (compChoice == options.paper & whatUserSelected == options.scissors) {
                     numOfUserWins++;
-                } else if (compChoice == 2 & whatUserSelected == 1) {
+                } else if (compChoice == options.paper & whatUserSelected == options.rock) {
                     numOfCompWins++;
-                } else if (compChoice == 3 & whatUserSelected == 1) {
+                } else if (compChoice == options.scissors & whatUserSelected == options.rock) {
                     numOfCompWins++;
-                } else if (compChoice == 3 & whatUserSelected == 2) {
+                } else if (compChoice == options.scissors & whatUserSelected == options.paper) {
                     numOfCompWins++;
                 }
                 gameNumber++;
@@ -76,7 +81,7 @@
             lineVar = "Games played: " + gameNumber + ". Ties: " + numOfDraws + ". Computer wins: " + numOfCompWins  + ". User wins: " + numOfUserWins;
             console.log(lineVar);
             
-            obj.textContent = textResults + "\n" + lineVar;
+            obj.textContent = textResults + lineVar + "\n";
             
         }
 
