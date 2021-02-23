@@ -50,8 +50,10 @@
                 } else {
                     compText = "rock";
                 }
-                console.log("Computer: " + compText + " User: " + userEnteredText);
-                textResults += "\nComputer: " + compText + ". User: " + userEnteredText;
+                lineVar = "Computer: " + compText + " User: " + userEnteredText;
+                console.log(lineVar);
+            
+                textResults += "\n" + lineVar;
                 // if they are the same then Tie
                 if (compChoice == whatUserSelected) {
                     numOfDraws++;
