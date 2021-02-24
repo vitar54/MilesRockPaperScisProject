@@ -5,7 +5,7 @@ const options = {
     scissors:3
 };
 
-    function GetUserText(userEnteredText) {
+    function GetUserOption(userEnteredText) {
         let whatUserSelected1 = 1; 
         if (userEnteredText == "rock") {
             whatUserSelected1 = options.rock;
@@ -45,7 +45,7 @@ const options = {
                 if ((userEnteredText != null) && (userEnteredText != "")) {
                     userEnteredText = userEnteredText.toLowerCase();
                     // convert text into number
-                    whatUserSelected = GetUserText(userEnteredText);
+                    whatUserSelected = GetUserOption(userEnteredText);
                 }else {
                     whatUserSelected = options.rock;
                 }
@@ -59,7 +59,7 @@ const options = {
                 let compText = getCompText(compChoice);
                 
                 // save user and computer choices
-                lineVar = "Computer: " + compText + " User: " + userEnteredText;
+                lineVar = "Computer: " + compText + ". User: " + userEnteredText;
                 console.log(lineVar);
             
                 textResults += lineVar + "\n";
@@ -67,25 +67,29 @@ const options = {
                 // if they are the same then Tie
                 if (compChoice == whatUserSelected) {
                     numOfDraws++;
-                // case rock paper - user wins
-                } else if (compChoice == options.rock & whatUserSelected == options.paper) {
-                    numOfUserWins++;
-                // case rock scissors - user wins
-                } else if (compChoice == options.rock & whatUserSelected == options.scissors) {
-                    numOfUserWins++;
-                // case paper scissors - user wins
-                } else if (compChoice == options.paper & whatUserSelected == options.scissors) {
-                    numOfUserWins++;
-                // case paper rock - Computer wins
-                } else if (compChoice == options.paper & whatUserSelected == options.rock) {
-                    numOfCompWins++;
-                // case scissors rock - Computer wins
-                } else if (compChoice == options.scissors & whatUserSelected == options.rock) {
-                    numOfCompWins++;
-                // case scissors paper - Computer wins
-                } else if (compChoice == options.scissors & whatUserSelected == options.paper) {
-                    numOfCompWins++;
+                } else {
+                    // selections are different
+                    let varForSwitch = compChoice + "|" + whatUserSelected;
+                    switch(varForSwitch) {
+                        case "1|2":
+                            // case rock paper - user wins
+                        case "1|3":
+                            // case rock scissors - user wins
+                        case "2|3":
+                            // case paper scissors - user wins
+                            numOfUserWins++;
+                            break;
+                        case "2|1":
+                            // case paper rock - Computer wins
+                        case "3|1":
+                            // case scissors rock - Computer wins
+                        case "3|2":
+                            // case scissors paper - Computer wins
+                            numOfCompWins++;
+                            break;
+                    }
                 }
+
                 gameNumber++;
             }
             
