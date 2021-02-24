@@ -6,7 +6,7 @@ const options = {
 };
 
     function GetUserOption(userEnteredText) {
-        let whatUserSelected1 = 1; 
+        let whatUserSelected1 = options.rock; 
         if (userEnteredText == "rock") {
             whatUserSelected1 = options.rock;
         } else if (userEnteredText == "paper") {
@@ -39,7 +39,7 @@ const options = {
                 console.log(lineVar);
                 textResults += lineVar + "\n";
                 let whatUserSelected = options.rock;
-                // ask user to choose. put results in whatUserSelected
+                // ask user to choose; put results in whatUserSelected
                 let userEnteredText = "rock";
                 userEnteredText = prompt("Please select Rock, Paper or Scissors", "Rock");
                 if ((userEnteredText != null) && (userEnteredText != "")) {
@@ -53,7 +53,7 @@ const options = {
                 if (whatUserSelected == options.scissors) {
                     userEnteredText = "scissors";
                 }
-                // generate comp choice - random number from 1 to 3
+                // generate computer choice - random number from 1 to 3
                 let compChoice = Math.floor(Math.random() * (3)) + 1 ;
                 // convert computer choice into text
                 let compText = getCompText(compChoice);
