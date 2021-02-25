@@ -62,11 +62,12 @@ const options = {
                 lineVar = "Computer: " + compText + ". User: " + userEnteredText;
                 console.log(lineVar);
             
-                textResults += lineVar + "\n";
+                textResults += lineVar;
                 // compare
                 // if they are the same then Tie
                 if (compChoice == whatUserSelected) {
                     numOfDraws++;
+                    textResults += ". Tie \n";
                 } else {
                     // selections are different
                     let varForSwitch = compChoice + "|" + whatUserSelected;
@@ -78,6 +79,7 @@ const options = {
                         case "2|3":
                             // case paper scissors - user wins
                             numOfUserWins++;
+                            textResults += ". User won \n";
                             break;
                         case "2|1":
                             // case paper rock - Computer wins
@@ -86,6 +88,7 @@ const options = {
                         case "3|2":
                             // case scissors paper - Computer wins
                             numOfCompWins++;
+                            textResults += ". Computer won \n";
                             break;
                     }
                 }
