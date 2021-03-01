@@ -74,8 +74,8 @@ const options = {
                     switch(varForSwitch) {
                         case "1|2":
                             // case rock paper - user wins
-                        case "1|3":
-                            // case rock scissors - user wins
+                        case "3|1":
+                            // case scissors rock  - user wins
                         case "2|3":
                             // case paper scissors - user wins
                             numOfUserWins++;
@@ -83,8 +83,8 @@ const options = {
                             break;
                         case "2|1":
                             // case paper rock - Computer wins
-                        case "3|1":
-                            // case scissors rock - Computer wins
+                        case "1|3":
+                            // case  rock scissors - Computer wins
                         case "3|2":
                             // case scissors paper - Computer wins
                             numOfCompWins++;
